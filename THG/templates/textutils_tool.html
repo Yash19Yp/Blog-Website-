@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %}Text Utilization Tool - TeckHackGyaan{% endblock %}
+{% block toolsdropdownactive %} active {% endblock toolsdropdownactive %}
+{% block body %}
+
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Welcome to TechHackGyaan TextUtils Tool.</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  
+  <div class="container"> <!--container or container-fluid -->
+  <form action='/analyze' method='post'> {% csrf_token %}
+    <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">Enter you text here and let's textutils do the magic</label>
+      <textarea class="form-control" name="text" id="exampleFormControlTextarea1" rows="9"></textarea>
+    </div>
+  
+    <div class="form-check form-switch">
+    <input class="form-check-input" name="removepunc" type="checkbox" id="flexSwitchCheckDefault1">
+    <label class="form-check-label" for="flexSwitchCheckDefault">Remove Punctuation</label>
+    </div>
+  
+    <div class="form-check form-switch">
+    <input class="form-check-input" name="fullcaps" type="checkbox" id="flexSwitchCheckDefault2">
+    <label class="form-check-label" for="flexSwitchCheckDefault">UPPERCASE</label>
+    </div>
+  
+    <div class="form-check form-switch">
+    <input class="form-check-input" name="extraspaceremover" type="checkbox" id="flexSwitchCheckDefault3">
+    <label class="form-check-label" for="flexSwitchCheckDefault">Extra Space Remover</label>
+    </div>
+  
+    <div class="form-check form-switch">
+    <input class="form-check-input" name="newlineremover" type="checkbox" id="flexSwitchCheckDefault4">
+    <label class="form-check-label" for="flexSwitchCheckDefault">New line remover</label>
+    </div>
+
+    <div class="form-check form-switch">
+    <input class="form-check-input" name="charactercounter" type="checkbox" id="flexSwitchCheckDefault5">
+    <label class="form-check-label" for="flexSwitchCheckDefault">Character Count</label>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-dark mt-2">Analyze text</button>
+  </form>
+  </div>
+
+{% endblock %}

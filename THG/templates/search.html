@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block title %} Search Results {% endblock title %}
+
+{% block body %}
+
+<div class="container my-3">
+
+    <h2> Search Results </h2>
+    {% if allPosts|length < 1 %} <p>No Search Results</p>
+        Your search query- <b>{{query}}</b> - did not match any documents.
+        <br>Suggestions:
+        <ul>
+            <li>Make sure that all worlds are spelled correctly.</li>
+            <li>Try different keywords.</li>
+            <li>Try more general keywords.</li>
+            <li>Try fewer keywords.</li>
+        </ul>
+        {% endif %}
+        {% comment %} {% for post in allPosts %}
+
+        <div class="row g-0 border rounded overflow-hidden flex-md-row my-4 shadow-sm h-md-250 position-relative">
+            <div class="col p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-primary">Article by {{post.author}}</strong>
+                <h3 class="mb-0">{{post.title}}</h3>
+                <div class="mb-1 text-muted">{{post.created_on}}</div>
+                <p class="card-text mb-auto">{{post.content | truncatechars:250}}</p>
+                <div class="my-2">
+                    <a href="/{{post.slug}}" role="button" class="btn btn-primary">Continue reading</a>
+                </div>
+            </div>
+            <div class="col-auto d-none d-lg-block">
+                <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img"
+                    aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                    <title>Placeholder</title>
+                    <rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef"
+                        dy=".3em">Thumbnail</text>
+                </svg>
+
+            </div>
+        </div> {% endcomment %}
+        <div class="container row-md-3">
+            <ul>
+                {% for post in allPosts %}
+                <!-- <li><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a> - {{ post.author }}<br>
+        {{ post.content }}
+      </li> -->
+
+                <!-- <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{ post.title }}</a> - {{ post.author }}</h5>
+          <p class="card-text">{{ post.content }}</p>
+          <a href="{% url 'post_detail' post.pk %}" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div> -->
+                <div class="card text-center my-4">
+                    <div class="card-header">
+                        Featured
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ post.title }}</a> - {{ post.author }} | <b>{{ post.category }}</b>
+                        </h5>
+                        <p class="card-text">{{ post.content|safe |slice:":200" }}</p>
+                        <a href="{% url 'post_detail' post.slug %}" class="btn btn-primary">Continue Reading</a>
+                    </div>
+                    <div class="card-footer text-muted">
+                        {{ post.created_on }}
+                    </div>
+                </div>
+                {% endfor %}
+                <ul>
+        {% comment %} </div>
+        {% endfor %} {% endcomment %}
+</div>
+{% endblock body %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %} Email pwned checker - TechHackGyaan {% endblock %}
+{% block toolsdropdownactive %} active {% endblock toolsdropdownactive %}
+{% block body %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Welcome to TechHackGyaan Email pwned checker page.</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+
+  <div class="container"> 
+    <div class="mb-3">
+      <label for="pwned"><b>What does 'pwned' mean?</b><br>
+Pwned, in this context, simply means that your account has been the victim of a data breach.<br>
+The word itself takes its name from player-to-player messaging in online computer gaming. When one player is defeated, another might type out a message to say ‘You’ve been owned’.
+This was so frequently misspelt as ‘pwned’, the word itself took off.</label>
+      <label for="Emailpwnedchecker"><b>There are many websites in which you can check whether your email is been pwned or not. But we are here to provide you guys the best website for checking Email Pwned.</b></label>
+      <label for="Websitesforemailpwnedchecker">Amoung all the websites the best and most famous website is <b>Have I Been Pwned</b>.</label>
+      <label for="haveibeenpwned"><b>What is Have I Been Pwned?</b><br>
+The best known site for checking if your email address, or any account associated with it, has been hacked, is called <b>Have I Been Pwned</b>.<br>
+<br>Here, you can enter your email address (safely) and the site will check it against multiple data breach records. If your account details were included in one of those breaches, you'll be told the bad news that you've been 'pwned'.
+<br>To find out if your own email address has been affected by a data breach, head to the Have I Been Pwned website. You’ll need to enter your email address here – don’t worry, there’s no security threat to doing so, and you’ll never be asked to enter a password or other personal data.</label>
+      <br><br><label for="link">Here is the link for you to visit that website and check your email.</label>
+      <br><center><a href="https://haveibeenpwned.com/" target="_blank">Have I Been Pwned</a></center>
+
+    </div>
+{% endblock %}

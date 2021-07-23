@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %} {{post_category}} Articles - TechHackGyan {% endblock %}
+{% block postsdropdownactive %} active {% endblock postsdropdownactive %}
+
+{% block body %}
+<div class="container row-md-3">
+  <ul>
+  {% if allPosts %}
+  <center><h2 class="text-danger mt-3">Post Category: {{post_category}}</h2></center>
+    {% for post in allPosts %}
+    <div class="card text-center my-4">
+      <div class="card-header">
+        Featured
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{ post.title }}</a> - {{ post.author }} | <b>{{ post.category }}</b></h5>
+        <p class="card-text mb-auto"><div class="preview">{{post.content|safe|truncatechars:250}}</div></p>
+        <a href="{% url 'post_detail' post.slug %}" class="btn btn-primary">Continue Reading</a>
+      </div>
+      <div class="card-footer text-muted">
+        {{ post.created_on }}
+      </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <center><h3 style="color:#ff4400;" class="my-3">**We're sorry but there are no post for this category** :(</h3></center>
+    {% endif %}
+    <ul>
+</div>
+{% endblock %}

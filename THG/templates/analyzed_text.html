@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Text Utilization Tool - TeckHackGyaan{% endblock %}
+{% block toolsdropdownactive %} active {% endblock toolsdropdownactive %}
+{% block body %}
+
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Success to TextUtils</strong> Your text has been analyzed.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  
+  <div class="container"> <!--container or container-fluid -->
+    <h3> Your Analyzed Text = {{ purpose }} </h3>
+    <pre><!-- If you use paragraph tag then if your code has even multiple lines will convert into one line, but we don't want it -->{{ analyzed_text }}
+    {{ djtext }}
+    </pre>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Text Converter Tool - TeckHackGyaan{% endblock %}
+{% block toolsdropdownactive %} active {% endblock toolsdropdownactive %}
+{% block body %}
+
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Welcome to TechHackGyaan Text Converter Tool</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  
+  <div class="container"> <!--container or container-fluid -->
+  <form action='/converting_text_binary' method='post'> {% csrf_token %}
+    <h6 style="color:blue; margin-top:2%;">Enter Binary or Text form and converted it into text or binary. Enjoy guys!!</h6>
+    <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label"></label>
+      <textarea class="form-control" name="text" id="exampleFormControlTextarea1" rows="9"></textarea>
+    </div>
+    <select class="form-select" aria-label="Default select example" name="select">
+        <option selected name="-">Select the Method Of Converting!!</option>
+        <option value="binary_to_text" name="binary_to_text">Binary To Text</option>
+        <option value="text_to_binary" name="text_to_binary">Text To Binary</option>
+    </select>
+    <br>
+    <button type="submit" class="btn btn-dark mt-2">Start Converting</button>
+  </form>
+  </div>
+
+{% endblock %}
